@@ -2,7 +2,11 @@ package Tests;
 
 import Pages.FormsPage;
 import Pages.LoginPage;
+import Pages.SwipePage;
 import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.interactions.Pause;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -11,6 +15,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import utilities.DriverManager;
 import java.time.Duration;
+import java.util.Collections;
 
 public class LoginTest extends DriverManager {
 
@@ -18,6 +23,7 @@ public class LoginTest extends DriverManager {
     WebDriverWait wait;
     static LoginPage loginPage=new LoginPage();
     static FormsPage formsPage=new FormsPage();
+    static SwipePage swipePage=new SwipePage();
 
     @BeforeTest
     public void setUp(){
@@ -83,6 +89,22 @@ public class LoginTest extends DriverManager {
 
         Assert.assertEquals(switchTextAfterClick, "Click to turn the switch OFF");
         System.out.println("Switch Text After Click = " + switchTextAfterClick);
+    }
+
+    @Test
+    public void ScrollDown(){
+
+        getAppiumDriver().findElement(swipePage.swipeMenu).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(swipePage.swipePageText));
+
+        PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
+        Sequence sequence = new Sequence(finger1, 0)
+                .addAction(finger1.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), 530, 1500))
+                .addAction(finger1.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
+                .addAction(new Pause(finger1, Duration.ofMillis(200)))
+                .addAction(finger1.createPointerMove(Duration.ofSeconds(2), PointerInput.Origin.viewport(), 530, 100))
+                .addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        getAppiumDriver().perform(Collections.singletonList(sequence));
     }
     @AfterTest
     public void tearDown(){
