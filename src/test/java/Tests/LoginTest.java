@@ -4,15 +4,14 @@ import Pages.FormsPage;
 import Pages.LoginPage;
 import Pages.SwipePage;
 import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import utilities.DriverManager;
 import java.time.Duration;
 import java.util.Collections;
@@ -95,17 +94,50 @@ public class LoginTest extends DriverManager {
     public void ScrollDown(){
 
         getAppiumDriver().findElement(swipePage.swipeMenu).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(swipePage.swipePageText));
+
+        Dimension size=getAppiumDriver().manage().window().getSize();
+
+        int startX=size.getWidth()/2;
+        int endX=startX;
+
+        int startY= (int) (size.getHeight()*0.8);
+        int endY= (int) (size.getHeight()*0.1);
 
         PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
+
         Sequence sequence = new Sequence(finger1, 0)
-                .addAction(finger1.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), 530, 1500))
+                .addAction(finger1.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY))
                 .addAction(finger1.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
                 .addAction(new Pause(finger1, Duration.ofMillis(200)))
-                .addAction(finger1.createPointerMove(Duration.ofMillis(100), PointerInput.Origin.viewport(), 530, 100))
+                .addAction(finger1.createPointerMove(Duration.ofMillis(100), PointerInput.Origin.viewport(), endX, endY))
                 .addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
         getAppiumDriver().perform(Collections.singletonList(sequence));
     }
+
+    @Test
+    public void ScrollToRight(){
+
+        getAppiumDriver().findElement(swipePage.swipeMenu).click();
+
+        Dimension size=getAppiumDriver().manage().window().getSize();
+
+        int startX=size.getWidth()/2;
+        int endX=startX;
+
+        int startY= (int) (size.getHeight()*0.8);
+        int endY= (int) (size.getHeight()*0.1);
+
+        PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
+
+        Sequence sequence = new Sequence(finger1, 0)
+                .addAction(finger1.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY))
+                .addAction(finger1.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
+                .addAction(new Pause(finger1, Duration.ofMillis(200)))
+                .addAction(finger1.createPointerMove(Duration.ofMillis(100), PointerInput.Origin.viewport(), endX, endY))
+                .addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        getAppiumDriver().perform(Collections.singletonList(sequence));
+    }
+
     @AfterTest
     public void tearDown(){
 
