@@ -10,7 +10,6 @@ public class FormsPage extends DriverManager {
         PageFactory.initElements(getAppiumDriver(),this);
     }
 
-
     // Dropdown Locators
     public AppiumBy formsButton = (AppiumBy) AppiumBy.accessibilityId("Forms");
     public AppiumBy dropdownButton = (AppiumBy) AppiumBy.accessibilityId("Dropdown");
@@ -19,13 +18,7 @@ public class FormsPage extends DriverManager {
 
 
     // Switch Locators
-
     public AppiumBy switchText = (AppiumBy) AppiumBy.accessibilityId("switch-text");
     public AppiumBy switchButton = (AppiumBy) AppiumBy.accessibilityId("switch");
-
-
-
-
-
 
 }
