@@ -102,7 +102,7 @@ public class LoginTest extends DriverManager {
                 .addAction(finger1.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), 530, 1500))
                 .addAction(finger1.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
                 .addAction(new Pause(finger1, Duration.ofMillis(200)))
-                .addAction(finger1.createPointerMove(Duration.ofSeconds(2), PointerInput.Origin.viewport(), 530, 100))
+                .addAction(finger1.createPointerMove(Duration.ofMillis(100), PointerInput.Origin.viewport(), 530, 100))
                 .addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
         getAppiumDriver().perform(Collections.singletonList(sequence));
     }
