@@ -46,7 +46,7 @@ public class LoginTest extends DriverManager {
         System.out.println(actualText);
         Assert.assertEquals(actualText,"You are logged in!");
 
-        By loginOkButton =new By.ById("android:id/button1");
+        By loginOkButton =By.id("android:id/button1");
         wait.until(ExpectedConditions.visibilityOfElementLocated(loginOkButton));
         getAppiumDriver().findElement(loginOkButton).click();
 
