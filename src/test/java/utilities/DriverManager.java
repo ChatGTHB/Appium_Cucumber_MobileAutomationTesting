@@ -10,8 +10,8 @@ import java.time.Duration;
 
 public class DriverManager {
     private static AndroidDriver driver;
-    public static AndroidDriver getAppiumDriver(){
 
+    public static AndroidDriver getAppiumDriver(){
         if(driver == null){
             UiAutomator2Options options = new UiAutomator2Options();
             options.setPlatformName("Android");

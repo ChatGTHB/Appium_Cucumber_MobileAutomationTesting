@@ -11,4 +11,7 @@ public class SwipePage extends DriverManager {
     }
     public AppiumBy swipeMenu =new AppiumBy.ByAccessibilityId("Swipe");
     public By swipePageText = By.xpath("//*[@text='Swipe horizontal']");
+    public AppiumBy logo = new AppiumBy.ByAccessibilityId("WebdriverIO logo");
+    public By allButtons = By.xpath("//android.view.ViewGroup[@content-desc=\"Carousel\"]/android.view.ViewGroup/android.view.ViewGroup");
+    public By lastElement = By.xpath("//*[@text='COMPATIBLE']");
 }
