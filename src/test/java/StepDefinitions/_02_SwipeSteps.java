@@ -5,12 +5,14 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import utilities.PageActionsHelper;
 
 import java.time.Duration;
+import java.util.List;
 
 import static utilities.DriverManager.getAppiumDriver;
 
@@ -38,5 +40,18 @@ public class _02_SwipeSteps {
             System.out.println("I found you!");
         }
     }
+    @And("Scroll Right")
+    public void scrollRight() {
+        List<WebElement> listOfbuttons = getAppiumDriver().findElements(swipePage.allButtons);
+        for (int i = 0; i < listOfbuttons.size(); i++) {
+            pageActionsHelper.performScroll("right");
+        }
+    }
+
+    @Then("Last Element Should Be Visible")
+    public void lastElementShouldBeVisible() {
+        Assert.assertTrue(getAppiumDriver().findElement(swipePage.lastElement).isDisplayed());
+    }
 }
+
 
