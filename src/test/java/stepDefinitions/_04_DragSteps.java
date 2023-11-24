@@ -1,8 +1,6 @@
-package StepDefinitions;
+package stepDefinitions;
 
-import Pages.DragPage;
-import Pages.LoginPage;
-import io.cucumber.java.en.Given;
+import pages.DragPage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.support.ui.ExpectedConditions;

@@ -1,17 +1,12 @@
-package Tests;
+package tests;
 
-import Pages.DragPage;
-import Pages.FormsPage;
-import Pages.LoginPage;
-import Pages.SwipePage;
-import io.appium.java_client.AppiumBy;
+import pages.DragPage;
+import pages.FormsPage;
+import pages.LoginPage;
+import pages.SwipePage;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Pause;
-import org.openqa.selenium.interactions.PointerInput;
-import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -22,7 +17,6 @@ import utilities.DriverManager;
 import utilities.PageActionsHelper;
 
 import java.time.Duration;
-import java.util.Collections;
 import java.util.List;
 
 public class Tests extends DriverManager {
