@@ -1,10 +1,10 @@
 package stepDefinitions;
 
-import pages.DragPage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.DragPage;
 import utilities.PageActionsHelper;
 
 import java.time.Duration;
@@ -12,6 +12,7 @@ import java.time.Duration;
 import static utilities.DriverManager.getAppiumDriver;
 
 public class _04_DragSteps {
+
     WebDriverWait wait = new WebDriverWait(getAppiumDriver(), Duration.ofSeconds(20));
     DragPage dragPage = new DragPage();
     PageActionsHelper pageActionsHelper = new PageActionsHelper();

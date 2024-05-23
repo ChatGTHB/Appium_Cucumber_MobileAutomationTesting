@@ -6,10 +6,10 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.DriverManager;
 
 public class DragPage extends DriverManager {
-    public DragPage(){
-        PageFactory.initElements(getAppiumDriver(), this);
-    }
     public AppiumBy dragMenu = (AppiumBy) AppiumBy.accessibilityId("Drag");
     public By successMessage = By.xpath("//*[@text='Congratulations']");
     public AppiumBy retryButton = (AppiumBy) AppiumBy.accessibilityId("button-Retry");
+    public DragPage() {
+        PageFactory.initElements(getAppiumDriver(), this);
+    }
 }

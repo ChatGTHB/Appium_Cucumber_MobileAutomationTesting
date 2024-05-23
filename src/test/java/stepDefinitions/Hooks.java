@@ -1,9 +1,11 @@
 package stepDefinitions;
 
-import io.cucumber.java.*;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import utilities.DriverManager;
 
 public class Hooks {
+
     @Before
     public void before() {
         System.out.println("Scenario started");

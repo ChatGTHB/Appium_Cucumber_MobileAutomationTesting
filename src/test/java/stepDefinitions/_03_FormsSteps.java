@@ -1,22 +1,23 @@
 package stepDefinitions;
 
-import pages.FormsPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import pages.FormsPage;
 
 import java.time.Duration;
 
 import static utilities.DriverManager.getAppiumDriver;
 
 public class _03_FormsSteps {
+
     WebDriverWait wait = new WebDriverWait(getAppiumDriver(), Duration.ofSeconds(20));
     FormsPage formsPage = new FormsPage();
 
     @When("Navigate To Forms Page")
-    public void navigateToFormsPage(){
+    public void navigateToFormsPage() {
         getAppiumDriver().findElement(formsPage.formsButton).click();
     }
 
@@ -50,7 +51,7 @@ public class _03_FormsSteps {
         System.out.println("Selected option is = " + getAppiumDriver().findElement(formsPage.actualSelectedOption).getText());
         getAppiumDriver().findElement(formsPage.dropdownButton).click();
         String isSelected = getAppiumDriver().findElement(formsPage.secondOption).getAttribute("checked");
-        Assert.assertEquals(isSelected,"true");
+        Assert.assertEquals(isSelected, "true");
         System.out.println("Is element selected = " + isSelected);
     }
 }

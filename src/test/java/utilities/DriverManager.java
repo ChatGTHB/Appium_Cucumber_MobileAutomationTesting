@@ -9,10 +9,11 @@ import java.net.URL;
 import java.time.Duration;
 
 public class DriverManager {
+
     private static AndroidDriver driver;
 
-    public static AndroidDriver getAppiumDriver(){
-        if(driver == null){
+    public static AndroidDriver getAppiumDriver() {
+        if (driver == null) {
             UiAutomator2Options options = new UiAutomator2Options();
             options.setPlatformName("Android");
             options.setPlatformVersion("11.0");
@@ -33,12 +34,10 @@ public class DriverManager {
         return driver;
     }
 
-    public static void closeApplication(){
-        if(driver != null){
+    public static void closeApplication() {
+        if (driver != null) {
             driver.quit();
             driver = null;
         }
     }
-
-
 }

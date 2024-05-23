@@ -1,4 +1,5 @@
 Feature: Drag Functionality
+
   Background:
     Given Open Application
     When Navigate To Drag Page

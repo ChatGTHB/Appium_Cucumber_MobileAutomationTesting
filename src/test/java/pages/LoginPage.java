@@ -7,13 +7,13 @@ import utilities.DriverManager;
 
 public class LoginPage extends DriverManager {
 
-    public LoginPage(){
+    public AppiumBy loginMenu = new AppiumBy.ByAccessibilityId("Login");
+    public AppiumBy usernameInputField = new AppiumBy.ByAccessibilityId("input-email");
+    public AppiumBy passwordInputField = new AppiumBy.ByAccessibilityId("input-password");
+    public AppiumBy loginButton = new AppiumBy.ByAccessibilityId("button-LOGIN");
+    public By successfulLoginMessage = By.id("android:id/message");
+    public By loginOkButton = new By.ById("android:id/button1");
+    public LoginPage() {
         PageFactory.initElements(getAppiumDriver(), this);
     }
-    public AppiumBy loginMenu =new AppiumBy.ByAccessibilityId("Login");
-    public AppiumBy usernameInputField =new AppiumBy.ByAccessibilityId("input-email");
-    public AppiumBy passwordInputField =new AppiumBy.ByAccessibilityId("input-password");
-    public AppiumBy loginButton =new AppiumBy.ByAccessibilityId("button-LOGIN");
-    public By successfulLoginMessage = By.id("android:id/message");
-    public By loginOkButton =new By.ById("android:id/button1");
 }

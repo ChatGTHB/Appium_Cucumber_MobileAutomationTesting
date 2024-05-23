@@ -1,6 +1,5 @@
 package stepDefinitions;
 
-import pages.SwipePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import pages.SwipePage;
 import utilities.PageActionsHelper;
 
 import java.time.Duration;
@@ -17,12 +17,13 @@ import java.util.List;
 import static utilities.DriverManager.getAppiumDriver;
 
 public class _02_SwipeSteps {
+
     WebDriverWait wait = new WebDriverWait(getAppiumDriver(), Duration.ofSeconds(20));
     SwipePage swipePage = new SwipePage();
     PageActionsHelper pageActionsHelper = new PageActionsHelper();
 
     @When("Navigate To Swipe Page")
-    public void navigateToSwipePage(){
+    public void navigateToSwipePage() {
         getAppiumDriver().findElement(swipePage.swipeMenu).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(swipePage.swipePageText));
     }
@@ -36,7 +37,7 @@ public class _02_SwipeSteps {
     public void logoShouldBeVisible() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(swipePage.logo));
         Assert.assertTrue(getAppiumDriver().findElement(swipePage.logo).isDisplayed());
-        if(getAppiumDriver().findElement(By.xpath("//*[@text='You found me!!!']")).isDisplayed()){
+        if (getAppiumDriver().findElement(By.xpath("//*[@text='You found me!!!']")).isDisplayed()) {
             System.out.println("I found you!");
         }
     }

@@ -1,4 +1,5 @@
 Feature: Swipe Functionality
+
   Background:
     Given Open Application
     When Navigate To Swipe Page
@@ -7,6 +8,7 @@ Feature: Swipe Functionality
   Scenario: Scroll Down
     And Scroll Down
     Then Logo Should Be Visible
+
   @Smoke
   Scenario: Scroll Right
     And Scroll Right

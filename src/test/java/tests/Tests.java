@@ -1,9 +1,5 @@
 package tests;
 
-import pages.DragPage;
-import pages.FormsPage;
-import pages.LoginPage;
-import pages.SwipePage;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -13,6 +9,10 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import pages.DragPage;
+import pages.FormsPage;
+import pages.LoginPage;
+import pages.SwipePage;
 import utilities.DriverManager;
 import utilities.PageActionsHelper;
 
@@ -30,7 +30,7 @@ public class Tests extends DriverManager {
     PageActionsHelper pageActionsHelper = new PageActionsHelper();
 
     @BeforeTest
-    public void setUp(){
+    public void setUp() {
         driver = getAppiumDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
@@ -52,19 +52,19 @@ public class Tests extends DriverManager {
     }
 
     @Test
-    public void Dropdown(){
+    public void Dropdown() {
         getAppiumDriver().findElement(formsPage.formsButton).click();
         getAppiumDriver().findElement(formsPage.dropdownButton).click();
         getAppiumDriver().findElement(formsPage.secondOption).click();
         System.out.println("Selected option is = " + getAppiumDriver().findElement(formsPage.actualSelectedOption).getText());
         getAppiumDriver().findElement(formsPage.dropdownButton).click();
         String isSelected = getAppiumDriver().findElement(formsPage.secondOption).getAttribute("checked");
-        Assert.assertEquals(isSelected,"true");
+        Assert.assertEquals(isSelected, "true");
         System.out.println("Is element selected = " + isSelected);
     }
 
     @Test
-    public void Switch(){
+    public void Switch() {
         getAppiumDriver().findElement(formsPage.formsButton).click();
         String switchTextBeforeClick = getAppiumDriver().findElement(formsPage.switchText).getText();
         Assert.assertEquals(switchTextBeforeClick, "Click to turn the switch ON");
@@ -76,19 +76,19 @@ public class Tests extends DriverManager {
     }
 
     @Test
-    public void ScrollDown(){
+    public void ScrollDown() {
         getAppiumDriver().findElement(swipePage.swipeMenu).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(swipePage.swipePageText));
         pageActionsHelper.performScroll("down");
         wait.until(ExpectedConditions.visibilityOfElementLocated(swipePage.logo));
         Assert.assertTrue(getAppiumDriver().findElement(swipePage.logo).isDisplayed());
-        if(getAppiumDriver().findElement(By.xpath("//*[@text='You found me!!!']")).isDisplayed()){
+        if (getAppiumDriver().findElement(By.xpath("//*[@text='You found me!!!']")).isDisplayed()) {
             System.out.println("I found you!");
         }
     }
 
     @Test
-    public void ScrollToRightEnd(){
+    public void ScrollToRightEnd() {
         getAppiumDriver().findElement(swipePage.swipeMenu).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(swipePage.swipePageText));
         List<WebElement> listOfbuttons = getAppiumDriver().findElements(swipePage.allButtons);
@@ -105,12 +105,11 @@ public class Tests extends DriverManager {
         wait.until(ExpectedConditions.visibilityOfElementLocated(dragPage.successMessage));
         getAppiumDriver().findElement(dragPage.retryButton).click();
         Thread.sleep(3000);
-        }
-
+    }
 
     @AfterTest
-    public void tearDown(){
-        if(driver != null){
+    public void tearDown() {
+        if (driver != null) {
             driver.quit();
         }
     }

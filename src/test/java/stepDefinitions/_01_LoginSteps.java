@@ -1,6 +1,5 @@
 package stepDefinitions;
 
-import pages.LoginPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -8,17 +7,19 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import pages.LoginPage;
 
 import java.time.Duration;
 
 import static utilities.DriverManager.getAppiumDriver;
 
 public class _01_LoginSteps {
+
     WebDriverWait wait = new WebDriverWait(getAppiumDriver(), Duration.ofSeconds(20));
     LoginPage loginPage = new LoginPage();
 
     @Given("Open Application")
-    public void openApplication(){
+    public void openApplication() {
         getAppiumDriver();
     }
 
