@@ -28,19 +28,41 @@ This repository contains a mobile automation testing framework using Appium, Cuc
    cd Appium_Cucumber_MobileAutomationTesting
    ```
 
-2. Install dependencies:
-   ```sh
-   mvn install
-   ```
+2. **Java Installation**
+   - Install Java JDK 11 or later.
+   - Set JAVA_HOME and PATH environment variables.
 
-3. Configure your mobile devices/emulators.
+3. **Maven Installation**
+   - Download and install Maven from [here](https://maven.apache.org/download.cgi).
+   - Set MAVEN_HOME and PATH environment variables.
+
+4. **Android SDK Installation**
+   - Install Android Studio and configure the Android SDK.
+   - Set ANDROID_HOME and PATH environment variables.
+
+5. **Appium Server Installation**
+   - Download and install Appium Desktop from [here](https://github.com/appium/appium-desktop/releases).
+   - Start Appium.
+
+6. **Loading Project Dependencies**
+   - Navigate to the root directory of your project in the terminal or command line.
+   - Run the following command to load the Maven dependencies:
+     ```sh
+     mvn clean install
+     ```
 
 ## Running Tests
 
-To execute the tests, use the following command:
-```sh
-mvn test
-```
+1. **Starting Appium Server**
+   - Start the Appium server using Appium Desktop or via terminal.
+
+2. **Starting Android Emulator or Real Device**
+   - Start an Android emulator or connect a real device via USB.
+
+3. To execute the tests, use the following command:
+   ```sh
+   mvn test
+   ```
 
 ## Project Structure
 
