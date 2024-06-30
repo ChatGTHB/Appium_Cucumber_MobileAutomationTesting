@@ -16,7 +16,7 @@ public class DriverManager {
         if (driver == null) {
             UiAutomator2Options options = new UiAutomator2Options();
             options.setPlatformName("Android");
-            options.setPlatformVersion("12.0");
+            options.setPlatformVersion("11.0");
             // options.setPlatformVersion("13.0");  //for real device
             options.setAutomationName(AutomationName.ANDROID_UIAUTOMATOR2);
             options.setDeviceName("Emulator");
